@@ -109,7 +109,7 @@ details p{margin:.7rem 0 0;color:var(--mut)}
 .final .ps{font-style:italic;font-size:.95rem;margin-top:1.5rem}
 footer{padding:2rem 0 6rem;text-align:center;color:var(--mut);font-size:.9rem}
 .bar{display:none}
-@media(max-width:700px){.bar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:5;background:var(--navy);padding:.6rem 1rem calc(.6rem + env(safe-area-inset-bottom,0px));text-align:center}.bar .cta{display:block;padding:.8rem}}
+@media(max-width:700px){.bar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:5;background:var(--navy);padding:.6rem 1rem calc(.6rem + env(safe-area-inset-bottom,0px));text-align:center}.bar .cta{display:block;padding:.8rem}.bar{text-align:left}.bar .cta{width:46%}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 .facts{list-style:none;display:flex;flex-wrap:wrap;gap:.6rem 2rem;padding:0;margin:1.5rem 0 0;color:#B9C6EE}
 .facts li{display:flex;flex-direction:column;font-size:.95rem}
@@ -390,7 +390,7 @@ html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 56px)}
 <p>Tem solução, e é isso que vai começar a aprender, passo a passo, em 3 sessões individuais comigo.</p>
 <p><strong><span data-p="final">€147 até ao fim de 2026. Depois, €197.</span><br>Garantia de 7 dias a contar da 1.ª sessão.</strong></p>
 <a class="cta" href="#comprar" id="checkout">Quero começar</a>
-<p class="sub"><a id="miniguia" href="#" style="color:#fff">Ainda não tem a certeza? Comece pelo mini-guia “5 Mensagens de Abordagem” (€9,90).</a> <mark class="ph" id="miniguia-ph">[LINK DO MINI-GUIA]</mark></p>
+<p class="sub" id="miniguia-p" hidden><a id="miniguia" href="#" style="color:#fff">Ainda não tem a certeza? Comece pelo mini-guia “5 Mensagens de Abordagem” (€9,90).</a> <mark class="ph" id="miniguia-ph">[LINK DO MINI-GUIA]</mark></p>
 <p class="ps">P.S. Se ainda não decidiu, pense nisto: quantos clientes deixaram de lhe responder só este mês? A garantia existe para que o risco de experimentar seja meu.</p>
 </div>
 </section>
@@ -416,7 +416,7 @@ else{m.textContent="[FALTA LIGAR O FORMULÁRIO: número de WhatsApp em WHATSAPP_
 (function(){if(new Date()<new Date(2027,0,1))return;function s(k,t){var e=document.querySelector('[data-p="'+k+'"]');if(e)e.textContent=t;}
 s("label","Preço");s("price","€197");s("cta","Entrar por €197, com garantia");s("final","€197, investimento único.");var sb=document.querySelector('[data-p="sobe"]');if(sb)sb.hidden=true;})();
 (function(){var el=document.getElementById("faltam");if(!el)return;var d=Math.ceil((new Date(2027,0,1)-new Date())/864e5);if(d>0)el.textContent=d===1?"Falta 1 dia.":"Faltam "+d+" dias.";})();
-if (MINIGUIA_URL) { document.getElementById("miniguia").href = MINIGUIA_URL; document.getElementById("miniguia-ph").hidden = true; }
+if (MINIGUIA_URL) { document.getElementById("miniguia").href = MINIGUIA_URL; document.getElementById("miniguia-ph").hidden = true; document.getElementById("miniguia-p").hidden = false; }
 (function(){
 try{
 var h=document.querySelector(".hero h1"),i=0;
