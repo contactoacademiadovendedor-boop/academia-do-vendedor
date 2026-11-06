@@ -131,7 +131,7 @@ footer{padding:2rem 0;text-align:center;color:var(--mut);font-size:.9rem;border-
     <div class="card">
       <h3>O trabalho</h3>
       <ul>
-        <li>Abordar, de forma manual e personalizada, pessoas que vendem (freelancers e pequenos negócios) e sentem dificuldade em conquistar ou fechar clientes.</li>
+        <li>Abordar, de forma personalizada, pessoas que vendem (freelancers e pequenos negócios) e sentem dificuldade em conquistar ou fechar clientes.</li>
         <li>Abrir cada conversa com contexto, fazer perguntas e perceber se existe interesse real.</li>
         <li>Encaminhar quem tem interesse para a mentoria Do Contacto ao Fecho ou para uma conversa com o mentor.</li>
       </ul>
@@ -141,19 +141,18 @@ footer{padding:2rem 0;text-align:center;color:var(--mut);font-size:.9rem;border-
       <ul>
         <li><b>Remuneração:</b> apenas comissão sobre vendas concretizadas. Não há salário, valor fixo nem garantia de rendimento. <span id="comissao">A percentagem e as regras de pagamento são explicadas por escrito antes de qualquer compromisso.</span></li>
         <li><b>Regime:</b> colaboração independente (prestação de serviços). Define o seu horário e não há exclusividade. Para receber, é necessário poder emitir recibo ou fatura.</li>
-        <li><b>Apoio:</b> recebe a informação correta sobre a oferta e as regras de conduta. Cada mensagem é escrita por si, com o contexto da pessoa abordada.</li>
+        <li><b>Apoio:</b> recebe a informação correta sobre a oferta e as regras de conduta. Cada abordagem parte do contexto da pessoa abordada.</li>
       </ul>
     </div>
     <div class="card rules">
       <h3>O que nunca se faz (não negociável)</h3>
       <ul>
         <li>Prometer resultados ou inventar números, casos e testemunhos.</li>
-        <li>Inventar urgência ou escassez que não existem. Prazos reais, como as datas de preço do site, podem ser usados.</li>
-        <li>Usar listas compradas ou perfis falsos, ou enviar mensagens automáticas em massa a quem nunca falou connosco.</li>
-        <li>Voltar a contactar quem pediu para parar. Depois de um «agora não», pode haver seguimento mais tarde, com algo novo; um pedido para parar é final.</li>
+        <li>Usar listas compradas ou perfis falsos.</li>
+        <li>Voltar a contactar quem pediu para parar.</li>
         <li>Falar da oferta com informação que não tenha sido fornecida pela Academia.</li>
       </ul>
-      <p class="note" style="margin:.7rem 0 0">Ferramentas de apoio (agenda, lembretes, respostas guardadas) são livres.</p>
+      <p class="note" style="margin:.7rem 0 0">Fora disto, a forma de abordar, o ritmo, as ferramentas e o uso de urgência são decisão de cada pessoa.</p>
     </div>
   </div>
 </section>
@@ -283,7 +282,7 @@ var SC=[
   o:[["C","Tenho um mínimo diário definido e cumpro-o, mesmo sem vontade. Posso mudar a hora a que o faço, mas não o mínimo."],
      ["I","Espero que a vontade apareça. Se hoje não correr bem, compenso nos dias seguintes, quando estiver com mais energia."],
      ["D","Deixo acumular e, no último dia da semana, faço tudo de seguida: dezenas de mensagens num só dia para compensar."],
-     ["R","Procuro uma ferramenta que envie as mensagens por mim, em massa e de forma automática, para não depender da minha vontade."]]},
+     ["R","Faço o número de mensagens do dia com o mesmo texto para toda a gente, só para cumprir a meta, sem olhar a quem as envio."]]},
  {q:"A comissão só chega quando há vendas concretizadas, e o primeiro mês pode render pouco ou nada. Como encara isto?",
   o:[["C","Encaro como um teste com prazo: dou-me algumas semanas, registo o que aprendo e só depois avalio. Não dependo deste dinheiro para as despesas."],
      ["I","Tenho receio de perder tempo sem ganhar nada. Se nas duas primeiras semanas não houver vendas, deixo de acreditar que isto funciona."],
@@ -390,7 +389,7 @@ function evaluate(){
   else if(!ko&&T.D<=2&&sc>=14&&total>=18&&h>=4)tier="B";
   if(T.D>=2)fl.push("⚠ tende a pressionar ("+T.D+" cenários)");
   if(T.I>=3)fl.push("⚠ risco de desistir cedo ("+T.I+" cenários)");
-  if(T.R>=3)fl.push("⚠ tende a decorar ou automatizar ("+T.R+" cenários)");
+  if(T.R>=3)fl.push("⚠ tende a decorar frases ("+T.R+" cenários)");
   if(h<8)fl.push("⚠ poucas horas ("+HORAS[hk][0]+")");
   if(ativ==="nao")fl.push("⚠ não pretende abrir atividade");
   if(min<4)fl.push("⚠ preenchimento muito rápido ("+min+" min)");
