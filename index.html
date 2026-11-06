@@ -209,6 +209,7 @@ html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 56px)}
 .mg-card .cta{margin-top:.4rem}
 .mg-card .note{margin:.8rem 0 0}
 </style>
+<script data-goatcounter="https://academiadovendedor.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
@@ -477,6 +478,9 @@ var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isInter
 Object.keys(ids).forEach(function(k){var el=document.getElementById(k);if(el)so.observe(el);});
 }catch(err){document.querySelectorAll(".rv,.steps").forEach(function(e){e.classList.add("in");});}
 })();
+</script>
+<script>
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a");if(!a)return;var n=a.id==="checkout-preco"?"clique-comprar-preco":a.id==="checkout"?"clique-comprar-final":a.classList.contains("mg-buy")?"clique-miniguia":a.id==="wa-direto"?"clique-whatsapp":"";if(n){try{if(window.goatcounter&&window.goatcounter.count){window.goatcounter.count({path:n,title:n,event:true});}}catch(x){}}});
 </script>
 </body>
 </html>

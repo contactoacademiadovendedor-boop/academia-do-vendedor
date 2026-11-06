@@ -109,6 +109,7 @@ footer{padding:2rem 0;text-align:center;color:var(--mut);font-size:.9rem;border-
 @media(max-width:480px){.acts>*{flex:1 1 100%}.cta{width:100%}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
+<script data-goatcounter="https://academiadovendedor.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 <div class="prog" id="prog" aria-hidden="true"></div>
@@ -250,6 +251,7 @@ function $(s,r){return (r||document).querySelector(s);}
 function $$(s,r){return [].slice.call((r||document).querySelectorAll(s));}
 function words(t){t=(t||"").trim();return t?t.split(/\s+/).length:0;}
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function track(n){try{if(window.goatcounter&&window.goatcounter.count){window.goatcounter.count({path:n,title:n,event:true});}}catch(x){}}
 function val(id){return ($("#"+id).value||"").replace(/\s+/g," ").trim();}
 
 if(typeof COMISSAO_TEXTO==="string"&&COMISSAO_TEXTO.trim()){$("#comissao").textContent=COMISSAO_TEXTO.trim();}
@@ -443,9 +445,12 @@ form.addEventListener("submit",function(e){
   $("#msg").value=msg;
   $("#wa").href="https://wa.me/"+WHATSAPP_NUMERO+"?text="+encodeURIComponent(msg);
   $("#em").href="mailto:"+EMAIL_CONTACTO+"?subject="+encodeURIComponent("Candidatura SDR · "+nome)+"&body="+encodeURIComponent(msg);
+  track("sdr-candidatura-preparada");
   form.hidden=true;pronto.hidden=false;
   pronto.scrollIntoView({behavior:"smooth",block:"start"});
 });
+$("#wa").addEventListener("click",function(){track("sdr-enviar-whatsapp");});
+$("#em").addEventListener("click",function(){track("sdr-enviar-email");});
 $("#ed").addEventListener("click",function(){form.hidden=false;pronto.hidden=true;form.scrollIntoView({behavior:"smooth",block:"start"});});
 $("#cp").addEventListener("click",function(){
   var b=this,t=$("#msg").value;
