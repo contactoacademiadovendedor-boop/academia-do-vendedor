@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Candidatura a colaborador de prospeção comercial (SDR) da Academia do Vendedor: trabalho à comissão, com horário flexível.">
 <meta property="og:title" content="Candidatura SDR · Academia do Vendedor">
-<meta property="og:description" content="Prospeção comercial à comissão, com horário flexível. Candidatura em cerca de 10 minutos.">
+<meta property="og:description" content="Prospeção comercial à comissão, com horário flexível. Candidatura em cerca de 6 minutos.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_PT">
 <meta property="og:url" content="https://academia-do-vendedor.contacto-academiadovendedor.workers.dev/sdr.html">
@@ -117,7 +117,7 @@ footer{padding:2rem 0;text-align:center;color:var(--mut);font-size:.9rem;border-
   <div class="w">
     <div class="logo"><img src="img/logo.png" alt="Academia do Vendedor" width="84" height="54"></div>
     <h1>Candidatura a <span class="hl">SDR</span>:<br>prospeção comercial</h1>
-    <p class="meta">Só comissão · horário flexível · cerca de 10 minutos</p>
+    <p class="meta">Só comissão · horário flexível · cerca de 6 minutos</p>
     <p>Procuramos pessoas que saibam abrir conversas com potenciais clientes, perceber a situação de cada pessoa e encaminhar quem tem interesse real para a mentoria <b>Do Contacto ao Fecho</b>.</p>
     <p class="def">SDR: quem abre conversas comerciais e identifica quem tem interesse real.</p>
   </div>
@@ -198,14 +198,8 @@ footer{padding:2rem 0;text-align:center;color:var(--mut);font-size:.9rem;border-
       <div class="sec">
         <h2>4 · Escrita</h2>
         <p class="lead-in">Escreva como escreveria numa conversa real. Mensagens curtas e naturais valem mais do que textos longos.</p>
-        <div class="f"><label for="o1">A Marta é designer freelancer e publicou um story: «Mais um orçamento enviado e ficou sem resposta 😩 Já nem sei o que mais posso fazer.» Escreva a primeira mensagem que lhe enviaria no Instagram. <span class="hint">Máximo: três frases.</span></label>
-          <textarea id="o1" maxlength="320" rows="4"></textarea><span class="cnt" data-for="o1">0 / 320</span><div class="err"></div></div>
         <div class="f"><label for="o2">Depois de uma boa conversa, a pessoa diz: «Vou pensar.» Escreva a resposta que enviaria. <span class="hint">Máximo: duas frases.</span></label>
           <textarea id="o2" maxlength="240" rows="3"></textarea><span class="cnt" data-for="o2">0 / 240</span><div class="err"></div></div>
-        <div class="f"><label for="o3">Conte, em poucas linhas, uma situação real em que ouviu «não» (numa venda, numa candidatura, num projeto…) e o que fez a seguir.</label>
-          <textarea id="o3" maxlength="450" rows="4"></textarea><span class="cnt" data-for="o3">0 / 450</span><div class="err"></div></div>
-        <div class="f"><label for="o4">Onde e como encontraria as primeiras 50 pessoas a abordar? <span class="hint">Dê exemplos concretos.</span></label>
-          <textarea id="o4" maxlength="350" rows="4"></textarea><span class="cnt" data-for="o4">0 / 350</span><div class="err"></div></div>
       </div>
 
       <div class="sec">
@@ -335,7 +329,7 @@ function check(){
   req($$('input[name="canal"]:checked').length>0,$("#canais"),"Escolha pelo menos um canal.");
   req(!!$("#ativ").value,$("#ativ"),"Escolha uma opção.");
   SC.forEach(function(s,i){req(!!$('input[name="s'+(i+1)+'"]:checked'),$("#q-s"+(i+1)),"Escolha uma opção.");});
-  [["o1",20],["o2",10],["o3",30],["o4",30]].forEach(function(p){req(val(p[0]).length>=p[1],$("#"+p[0]),"Escreva a resposta (mínimo de "+p[1]+" caracteres).");});
+  [["o2",10]].forEach(function(p){req(val(p[0]).length>=p[1],$("#"+p[0]),"Escreva a resposta (mínimo de "+p[1]+" caracteres).");});
   ["c18","creg","ccond","cpriv"].forEach(function(id){req($("#"+id).checked,$("#"+id),"É necessário confirmar para continuar.");});
   miss.sort(function(a,b){return (a.el.compareDocumentPosition(b.el)&4)?-1:1;});
   return {miss:miss,total:total,done:done};
@@ -370,30 +364,23 @@ function evaluate(){
     T[ty]++;seq.push(ty);sc+=PTS[ty];
     if(s.ko&&s.ko===ty){ko=true;fl.push("⛔ cenário "+(i+1)+": "+s.kt);}
   });
-  var o1=val("o1"),o2=val("o2"),l1=o1.toLowerCase(),l2=o2.toLowerCase(),w1=words(o1),w2=words(o2),p1=0,p2=0,n1=[],n2=[];
-  if(w1>=12&&w1<=55)p1++;else n1.push(w1<12?"mensagem muito curta":"mensagem longa ("+w1+" palavras)");
-  var q1=(o1.match(/\?/g)||[]).length;
-  if(q1===1)p1++;else n1.push(q1===0?"sem pergunta":"várias perguntas");
-  if(RX_CTX.test(l1))p1++;else n1.push("não usa o contexto do story");
-  if(!RX_PITCH.test(l1))p1++;else n1.push("fala da oferta ou do preço logo à partida");
-  if(!RX_FORMAL.test(l1))p1++;else n1.push("fórmulas vazias");
+  var o2=val("o2"),l2=o2.toLowerCase(),w2=words(o2),p2=0,n2=[];
   if(w2>=4&&w2<=40)p2++;else n2.push(w2<4?"resposta muito curta":"resposta longa ("+w2+" palavras)");
   if(/\?/.test(o2))p2++;else n2.push("sem pergunta de clarificação");
   if(!RX_PRESS.test(l2))p2++;else n2.push("pressão ou desconto");
-  var auto=p1+p2,total=sc+auto,hk=$("#horas").value,h=HORAS[hk][1],ativ=$("#ativ").value;
+  var auto=p2,total=sc+auto,hk=$("#horas").value,h=HORAS[hk][1],ativ=$("#ativ").value;
   var min=Math.max(1,Math.round((Date.now()-T0)/60000));
   var tier="C";
-  if(!ko&&T.D<=1&&sc>=18&&total>=24&&h>=8)tier="A";
-  else if(!ko&&T.D<=2&&sc>=14&&total>=18&&h>=4)tier="B";
+  if(!ko&&T.D<=1&&sc>=18&&total>=20&&h>=8)tier="A";
+  else if(!ko&&T.D<=2&&sc>=14&&total>=15&&h>=4)tier="B";
   if(T.D>=2)fl.push("⚠ tende a pressionar ("+T.D+" cenários)");
   if(T.I>=3)fl.push("⚠ risco de desistir cedo ("+T.I+" cenários)");
   if(T.R>=3)fl.push("⚠ tende a decorar frases ("+T.R+" cenários)");
   if(h<8)fl.push("⚠ poucas horas ("+HORAS[hk][0]+")");
   if(ativ==="nao")fl.push("⚠ não pretende abrir atividade");
   if(min<4)fl.push("⚠ preenchimento muito rápido ("+min+" min)");
-  if(n1.length)fl.push("⚠ 1.ª mensagem: "+n1.join(", "));
   if(n2.length)fl.push("⚠ «Vou pensar»: "+n2.join(", "));
-  return {tier:tier,total:total,sc:sc,auto:auto,T:T,seq:seq,fl:fl,min:min,w1:w1,w2:w2,h:HORAS[hk][0]};
+  return {tier:tier,total:total,sc:sc,auto:auto,T:T,seq:seq,fl:fl,min:min,w2:w2,h:HORAS[hk][0]};
 }
 
 /* ---------- mensagem ---------- */
@@ -403,7 +390,7 @@ function build(ev){
   var canais=$$('input[name="canal"]:checked').map(function(c){return c.value;}).join(", ");
   var L=[];
   L.push("*CANDIDATURA SDR* · "+val("nome"));
-  L.push("*Nível "+ev.tier+"* ("+TIERTXT[ev.tier]+") · nota "+ev.total+"/32 · "+ev.min+" min");
+  L.push("*Nível "+ev.tier+"* ("+TIERTXT[ev.tier]+") · nota "+ev.total+"/27 · "+ev.min+" min");
   L.push("Alertas: "+(ev.fl.length?ev.fl.join(" · "):"nenhum"));
   L.push("");
   L.push("*Contacto*");
@@ -419,19 +406,10 @@ function build(ev){
   L.push("Atividade aberta: "+sel("ativ"));
   L.push("");
   L.push("*Cenários* ("+ev.sc+"/24): "+ev.seq.join(" ")+" · C"+ev.T.C+" I"+ev.T.I+" D"+ev.T.D+" R"+ev.T.R);
-  L.push("*Escrita* ("+ev.auto+"/8)");
-  L.push("");
-  L.push("*1.ª mensagem à Marta* ("+ev.w1+" palavras)");
-  L.push("«"+val("o1")+"»");
+  L.push("*Escrita* ("+ev.auto+"/3)");
   L.push("");
   L.push("*Resposta a «Vou pensar»* ("+ev.w2+" palavras)");
   L.push("«"+val("o2")+"»");
-  L.push("");
-  L.push("*Situação de «não»*");
-  L.push("«"+val("o3")+"»");
-  L.push("");
-  L.push("*Primeiras 50 pessoas*");
-  L.push("«"+val("o4")+"»");
   return L.join("\n");
 }
 
